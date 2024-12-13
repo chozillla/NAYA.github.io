@@ -3,177 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to My Website!">
-    <title>Welcome</title>
+    <meta name="description" content="Login to NAYA">
+    <title>Login</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Futura:wght@400;700&display=swap');
-
-        :root {
-            --bg-color: #f9f9f9;
-            --text-color: #333;
-            --heading-color: #222;
-            --button-bg: #333;
-            --button-hover-bg: #555;
-            --footer-color: #aaa;
-        }
 
         body {
             font-family: 'Futura', sans-serif;
             margin: 0;
             padding: 0;
-            background: var(--bg-color);
-            color: var(--text-color);
+            background: #f9f9f9;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 0 0 10px;
-            color: var(--heading-color);
-        }
-
-        p {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-color);
-            margin: 0;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 25px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #fff;
-            background-color: var(--button-bg);
-            text-decoration: none;
-            border: none;
-            border-radius: 25px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: var(--button-hover-bg);
-        }
-
-        footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.8rem;
-            color: var(--footer-color);
-        }
-
-        .dark-mode {
-            --bg-color: #1a1a1a;
-            --text-color: #eaeaea;
-            --heading-color: #fff;
-            --button-bg: #555;
-            --button-hover-bg: #777;
-            --footer-color: #555;
-        }
-
-        .modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-color);
-            color: var(--text-color);
+        .login-container {
+            background: #fff;
+            width: 100%;
+            max-width: 400px;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: none;
             text-align: center;
         }
 
-        .modal h2 {
-            font-size: 1.5rem;
+        .login-container img {
+            width: 60px;
             margin-bottom: 20px;
         }
 
-        .modal button, .modal form button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
+        .login-container h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .login-container p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
             font-size: 1rem;
             color: #fff;
-            background-color: var(--button-bg);
+            background-color: #007bff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
 
-        .modal button:hover, .modal form button:hover {
-            background-color: var(--button-hover-bg);
+        .login-container button:hover {
+            background-color: #0056b3;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
+        .login-container .google-login {
+            background-color: #db4437;
+            margin-top: 20px;
         }
 
-        .show {
+        .login-container .google-login:hover {
+            background-color: #b73227;
+        }
+
+        .login-container a {
             display: block;
+            font-size: 0.9rem;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 10px;
         }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Welcome to NAYA</h1>
-    <p>Minimalism meets functionality.</p>
-    <a href="#" class="button" id="get-started-button">Get Started</a>
-    <footer>© 2024 Your Name. All rights reserved.</footer>
+    <div class="login-container">
+        <img src="https://via.placeholder.com/60" alt="Logo">
+        <h1>Welcome</h1>
+        <p>PLEASE LOG IN</p>
 
-    <div class="overlay" id="overlay"></div>
-
-    <div class="modal" id="modal">
-        <h2>Create an Account</h2>
-        <p>Choose a sign-in method:</p>
-        <button id="google-button">Sign in with Google</button>
-        <button id="facebook-button">Sign in with Facebook</button>
-        <button id="twitter-button">Sign in with X</button>
-        <button id="orcid-button">Sign in with ORCID</button>
-
-        <hr style="margin: 20px 0;">
-
-        <p>Or enter your details manually:</p>
-        <form id="manual-signup-form">
-            <input type="text" placeholder="User Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Sign Up</button>
+        <form id="login-form">
+            <input type="email" placeholder="Enter your email" required>
+            <input type="password" placeholder="Enter your password" required>
+            <button type="submit">Log In</button>
         </form>
+
+        <button class="google-login">Log In with Google</button>
+
+        <a href="#">Sign Up</a>
     </div>
-
-    <script>
-        const getStartedButton = document.getElementById('get-started-button');
-        const modal = document.getElementById('modal');
-        const overlay = document.getElementById('overlay');
-
-        getStartedButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            modal.classList.add('show');
-            overlay.classList.add('show');
-        });
-
-        overlay.addEventListener('click', () => {
-            modal.classList.remove('show');
-            overlay.classList.remove('show');
-        });
-    </script>
 </body>
 </html>
